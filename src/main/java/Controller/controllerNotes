@@ -1,0 +1,5 @@
+Here Http request will be diverted to their respective handlers properly.
+To do this I must specify my goals for how I will interact with the web.
+Auth Controller:
+User Controller:
+Reimbursement Controller:

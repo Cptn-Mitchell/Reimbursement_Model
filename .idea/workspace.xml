@@ -5,12 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1b35b155-1a81-4330-94d2-aba72d880023" name="Changes" comment="First Commit">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Model/Reimbursement.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Model/UserData.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Model/model-notes" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ReimbursmentDriver.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Controller/AuthController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Controller/ReimbursementController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Controller/UserController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Controller/controllerNotes" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ReimbursementDriver.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Service/ReimbursementService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Service/UserService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/LoginTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Reimbursement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Reimbursement.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Model/UserData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/UserData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Model/model-notes" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/model-notes" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ReimbursmentDriver.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,12 +46,32 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "reference.settings.project.maven.repository.indices"
   }
-}</component>
+}]]></component>
+  <component name="RunManager">
+    <configuration name="LoginTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Mitchell_Reimbursment_Model" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="LoginTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.LoginTest" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">

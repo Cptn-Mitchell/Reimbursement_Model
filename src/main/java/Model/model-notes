@@ -1,5 +1,10 @@
 // A Model representing Users and Reimbursments
 I will need
 The Fields: The Variables in an Object that stores its respective Data
-Reimbursments: Reimbuesament approval, Reimbursment (ID, author,resolver,describtion,  Status, Amount )
+Reimbursments: Reimbuesament approval, Reimbursment (ID, author,resolver,description,  Status, Amount )
 Users: Type of Employee, User(id,username,password,role), Add Users
+
+Reimbursement Model: The Reimbursement CLASS holds the Int id, String author, Int reslover, String description,
+String status, and Int Amount OBJECTS. I used SETTERS on the objects to update the value of their variables.
+I used GETTERS to allow the OBJECTS to be read outside of the encapsulated class. For objects that get compiled
+I set the possible compilation results with ENUMs.
