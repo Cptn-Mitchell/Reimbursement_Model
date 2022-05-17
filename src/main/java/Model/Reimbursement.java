@@ -9,6 +9,10 @@ public class Reimbursement {
     String status;
     int amount;
 
+    public int getID() {
+        return 0;
+    }
+
 
     public enum Status{
         APPROVED,
