@@ -47,17 +47,17 @@ public class ReimbursementService {
             return null;
         }
         public ArrayList<Reimbursement> getReimbursementByAuthor(int userId) {
-            ArrayList<Reimbursement> userReimbursements = new ArrayList<>();
+            return reimbursementDAO.getReimbursementsByUser(userId);
 
             Reimbursement[] reimbursements = new Reimbursement[0];
             for (Reimbursement reimbursement : reimbursements) {
                 if (Reimbursement.getAuthor() == userId) {
                     String Reimbursement = new Reimbursement;
-                    userReimbursements.add(int,userId);
+                    reimbursementDAO.add(int,userId);
                     return int userId;
                 } else if (Reimbursement.getResolver() == userId) {
                     int Reimbursement = 0;
-                    userReimbursements.add(int);
+                    reimbursementDAO.add(int);
                     return null;
                 }
             }
@@ -74,11 +74,11 @@ public class ReimbursementService {
                 Status status = Status.valueOf(statusParam);
                 if (status == Status.UNDECIDED) {
                     ctx.status(HttpCode.OK);
-                    ctx.json(reimbursementService.getPendingReimbursement());
+                    ctx.json(reimbursementDAO.getPendingReimbursement());
                 } else {
                     boolean b = status == Status.ALLOWED;
                     ctx.status(HttpCode.OK);
-                    ctx.json(reimbursementService.getResolvedReimbursement());
+                    ctx.json(reimbursementDAO.getResolvedReimbursement());
                 }
             } catch (Exception e) {
 
@@ -100,5 +100,6 @@ public class ReimbursementService {
     private static Object getPendingReimbursement() {
         return getPendingReimbursement();
     }
+
 
 }
