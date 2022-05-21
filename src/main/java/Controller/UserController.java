@@ -1,4 +1,5 @@
 package Controller;
+import Model.Reimbursement;
 import Model.UserData;
 import Service.UserService;
 import Service.ReimbursementService;
@@ -50,15 +51,46 @@ public class UserController {
             }
         });
         app.get("register", context -> {
+                    ObjectMapper mapper = new ObjectMapper();
+                    UserService user = mapper.readValue(context.body(), UserService.class);
+                    int userID = loginService.register(user.getUsername(), user.getPassword());
+                    if (userID == 0) {
+                        context.status(HttpCode.INTERNAL_SERVER_ERROR);
+                    } else {
+                        context.result("" + userID);
+                    }
+                });
+
+        app.post("Submit", context ->{
             ObjectMapper mapper = new ObjectMapper();
-            UserService user = mapper.readValue(context.body(), UserService.class);
-            int userID = loginService.register(user.getUsername(), user.getPassword());
-            if(userID == 0){
-                context.status(HttpCode.INTERNAL_SERVER_ERROR);
-            }else{
-                context.result(""+userID);
-            }
+            Reimbursement reimbursementToBeAdded = mapper.readValue(context.body(), Reimbursement.class);
+            context.json(reimbursementService.addReimbursement(reimbursementToBeAdded));
         });
+
+        app.put("Process", context ->{
+            Object mapper = new ObjectMapper();
+            Reimbursement reimbursement = ((ObjectMapper) mapper).readValue(context.body(), Reimbursement.class);
+            int reimbursementId = Integer.parseInt(context.pathParam("ID"));
+            context.json(reimbursementService.getReimbursementByID(reimbursementId));
+
+        });
+        app.get("Status", context -> {
+            context.json(reimbursementService.getReimbursementByStatus(reimbursementByStatus));
+
+        });
+
+        app.get("Author", context -> {
+            context.json(reimbursementService.getReimbursementByAuthor());
+
+        });
+
+        app.get("/Reimbursement/ID", context ->{
+            Object mapper = new ObjectMapper();
+            Reimbursement reimbursement = ((ObjectMapper) mapper).readValue(context.body(), Reimbursement.class);
+            int reimbursementId = Integer.parseInt(context.pathParam("ID"));
+            context.json(reimbursementService.getReimbursementByID(reimbursementId));
+        });
+
 
     }}
 

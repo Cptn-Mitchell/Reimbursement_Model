@@ -61,4 +61,6 @@ public class UserService {
     public String getUsersByRole(String handlerId) {
         return null;
     }
+
+    public Integer getReimbursementByID(int reimbursementId) {return null;}
 }

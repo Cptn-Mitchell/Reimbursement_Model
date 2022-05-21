@@ -13,6 +13,9 @@ public class Reimbursement {
         return 0;
     }
 
+    public void setStatus(Status pending) {
+    }
+
 
     public enum Status{
         APPROVED,

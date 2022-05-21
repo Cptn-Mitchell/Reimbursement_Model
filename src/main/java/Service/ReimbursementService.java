@@ -1,69 +1,104 @@
 package Service;
 
 import Model.Reimbursement;
+import io.javalin.http.Context;
+import io.javalin.http.HttpCode;
 
 import java.util.ArrayList;
 
+import static java.io.ObjectInputFilter.*;
+
 public class ReimbursementService {
     ArrayList<Reimbursement> reimbursementArrayList;
-    private Reimbursement[] reimbursements;
-    private String updateStatus;
 
-    public void update(Reimbursement unprocessedReimbursement, int resolverID, Reimbursement.Status updatedStatus){
-        for (Reimbursement reimbursement : reimbursements) {
-            if (reimbursement.getId() == unprocessedReimbursement.getID()) {
-                reimbursement.setResolver(resolverID);
-                reimbursement.setStatus(updateStatus);
-                return;
-            }
-        }
-        throw new RuntimeException("There was an error processing this reimbursement, please try again!");
+    public ReimbursementService() {
+        reimbursementArrayList = new ArrayList<>();
     }
-    public void submitReimbursement (Reimbursement reimbursementToBeSubmitted){
-        Reimbursement latestReimbursement = reimbursements.get(reimbursements.size()-1);
-        int id = latestReimbursement.getId() +1;
-        reimbursementToBeSubmitted.setId(id);
-        reimbursementToBeSubmitted.setStatus(Status.PENDING);
-        reimbursements.add(reimbursementToBeSubmitted);
 
+    public ArrayList<Reimbursement> getAllReimbursement() {
+        return reimbursementArrayList;
     }
-    public List<Reimbursement> getResolvedReimbursements() {
-        List<Reimbursement> resolvedReimbursements = new ArrayList<>();
 
-        for (Reimbursement reimbursement :reimbursements){
-            if(reimbursement.getStatus() == Status.Approved || reimbursement.getStatus() == Status.Denied){
-                resolvedReimbursements.add(reimbursement);
-            }
-        }
-        return resolvedReimbursements;
-    }
-    public List<Reimbursement> getResolvedReimbursements() {
-        List<Reimbursement> resolvedReimbursements = new ArrayList<>();
-
-        for (Reimbursement reimbursement :reimbursements){
-            if(reimbursement.getStatus() == Status.Pending){
-                pendingReimbursements.add(reimbursement);
-            }
-        }
-        return pendingReimbursements;
-    }
-   public Reimbursement getReimbursementById(int id){
-        for (Reimbursement reimbursement : reimbursements){
-            if (reimbursement.getId() == id){
-                return reimbursement;
-            }
-        }
+    public Object addReimbursement(Reimbursement r) {
+        reimbursementArrayList.add(r);
         return null;
-   }
-   public List<Reimbursements> getReimbursementsByAuthor(int userId) {
-        List<Reimbursement> userReimbursements = new ArrayList<>();
+    }
 
-        for (Reimbursement r : reimbursements) {
-            if(r.getAuthor() == userId || r.getResolver() == userId) {
-                userReimbursements.add(r);
+    public void getReimbursementByAuthor(Reimbursement R) {
+        ArrayList.add(reimbursementArrayList);
+        reimbursementArrayList.set(reimbursementArrayList, R);
+    }
+
+    public void Reimbursement(Reimbursement r, int id) {
+        reimbursementArrayList.set(id,r);
+    }
+
+    public Reimbursement getReimbursement(int id) {
+        return reimbursementArrayList.get(id);
+    }
+
+        public Reimbursement getReimbursementById ( int id){
+            Reimbursement[] reimbursements = new Reimbursement[0];
+            for (Reimbursement reimbursement : reimbursements) {
+                if (reimbursement.getId() == id) {
+                    return reimbursement;
+                }
             }
+            return null;
         }
-        return userReimbursements;
-   }
+        public ArrayList<Reimbursement> getReimbursementByAuthor(int userId) {
+            ArrayList<Reimbursement> userReimbursements = new ArrayList<>();
+
+            Reimbursement[] reimbursements = new Reimbursement[0];
+            for (Reimbursement reimbursement : reimbursements) {
+                if (Reimbursement.getAuthor() == userId) {
+                    String Reimbursement = new Reimbursement;
+                    userReimbursements.add(int,userId);
+                    return int userId;
+                } else if (Reimbursement.getResolver() == userId) {
+                    int Reimbursement = 0;
+                    userReimbursements.add(int);
+                    return null;
+                }
+            }
+            return userReimbursements;
+        }
+
+        public Integer getReimbursementByID ( int reimbursementId){
+            return null;
+        }
+    public void getReimbursementByStatus(Context ctx){
+            try {
+                String statusParam = ctx.queryParam("Status");
+
+                Status status = Status.valueOf(statusParam);
+                if (status == Status.UNDECIDED) {
+                    ctx.status(HttpCode.OK);
+                    ctx.json(reimbursementService.getPendingReimbursement());
+                } else {
+                    boolean b = status == Status.ALLOWED;
+                    ctx.status(HttpCode.OK);
+                    ctx.json(reimbursementService.getResolvedReimbursement());
+                }
+            } catch (Exception e) {
+
+                ctx.status(HttpCode.INTERNAL_SERVER_ERROR);
+
+                if (!e.getMessage().isEmpty()) {
+                    ctx.result(e.getMessage());
+                }
+            }
+            Throwable e = null;
+            e.printStackTrace();
+        return reimbursementStatus;
+        }
+
+    private static Object getResolvedReimbursement() {
+        return getResolvedReimbursement();
+    }
+
+    private static Object getPendingReimbursement() {
+        return getPendingReimbursement();
+    }
 
 }

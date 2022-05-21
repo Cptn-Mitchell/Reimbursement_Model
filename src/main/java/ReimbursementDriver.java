@@ -38,7 +38,7 @@ public class ReimbursementDriver {
         put(reimbursementController::handleSubmit);
         path ("{id}", ()->{
             get(reimbursementController::handleGetReimbursementById);
-            put(rembursementController::handleProcess);
+            put(reimbursementController::handleProcess);
          });
         });
     });
