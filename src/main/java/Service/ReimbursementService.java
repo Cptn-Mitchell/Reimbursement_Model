@@ -61,7 +61,7 @@ public class ReimbursementService {
                     return null;
                 }
             }
-            return userReimbursements;
+            return User;
         }
 
         public Integer getReimbursementByID ( int reimbursementId){

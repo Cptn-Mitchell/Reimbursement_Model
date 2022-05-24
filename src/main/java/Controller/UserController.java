@@ -80,9 +80,13 @@ public class UserController {
         });
 
         app.get("Author", context -> {
-            context.json(reimbursementService.getReimbursementByAuthor());
-
+            String author = (context.pathParam("author"));
+            context.json(reimbursementService.getReimbursementByAuthor("author"));
         });
+        app.get("Author/{Name}", context -> {
+            String Name = (context.pathParam("Name"));
+            context.json(reimbursementService.getReimbursementByAuthor(Name));
+        }):
 
         app.get("/Reimbursement/ID", context ->{
             Object mapper = new ObjectMapper();
