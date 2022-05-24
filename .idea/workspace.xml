@@ -5,11 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1b35b155-1a81-4330-94d2-aba72d880023" name="Changes" comment="First Commit">
-      <change afterPath="$PROJECT_DIR$/src/main/java/DAO/ConnectionFactory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Model/Schema.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/DAO/Reimbursement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DAO/ReimbursementDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Service/ReimbursementService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Service/ReimbursementService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
