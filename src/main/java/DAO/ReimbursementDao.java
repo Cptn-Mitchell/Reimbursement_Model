@@ -2,15 +2,18 @@ package DAO;
 
 import Model.Reimbursement;
 import org.eclipse.jetty.server.ConnectionFactory;
-
+import java.sql.Connection;
 import java.io.ObjectInputFilter;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
+import Util.ConnectionFactory;
+import java.util.Properties;
 
 public class ReimbursementDao {
+    Connection conn;
     public Reimbursement(){
-        Connection conn = ConnectionFactory.getConnection();
+        conn = ConnectionFactory.getConnection();
 
     }
     public void update(Reimbursement unprocessedReimbursement){
@@ -46,13 +49,13 @@ public class ReimbursementDao {
 
             while (resultSet.next()) {
                 reimbursements.add(new Reimbursement(
-                        resultSet.getInt("id"),
-                        resultSet.getInt("author"),
-                        resultSet.getInt("result"),
-                        resultSet.getString("description"),
-                        ReimbursementType.valueOf(resultSet.getString("type")),
-                        Reimbursement.Status.valueOf(resultSet.getString("status")),
-                        resultSet.getDouble("amount")
+                        resultSet.getInt("ReimbursementID"),
+                        resultSet.getInt("Author"),
+                        resultSet.getInt("Result"),
+                        resultSet.getString("Description"),
+                        ReimbursementType.valueOf(resultSet.getString("ReimbursementType")),
+                        Reimbursement.Status.valueOf(resultSet.getString("Status")),
+                        resultSet.getDouble("Amount")
                 ));
             }
             return reimbursement;
@@ -78,13 +81,13 @@ public class ReimbursementDao {
             if(resultSet.next()){
 
                 return new Reimbursement(
-                        resultSet.getInt("id"),
-                        resultSet.getInt("author"),
+                        resultSet.getInt("ReimbursementID"),
+                        resultSet.getInt("Author"),
                         resultSet.getInt("result"),
                         resultSet.getString("description"),
-                        ReimbursementType.valueOf(resultSet.getString("type")),
-                        Reimbursement.Status.valueOf(resultSet.getString("status")),
-                        resultSet.getDouble("amount")
+                        ReimbursementType.valueOf(resultSet.getString("ReimbursementType")),
+                        Reimbursement.Status.valueOf(resultSet.getString("Status")),
+                        resultSet.getDouble("Amount")
                 );
             }
         } catch (SQLException e) {
@@ -105,7 +108,7 @@ public class ReimbursementDao {
 
             ResultSet resultSet = preparedStatement.executeQuery();
 
-            List<Reimbursement> reimbursements = new ArrayList<>;
+            List<Reimbursement> reimbursements = new ArrayList<>();
             while (resultSet.next()) {
                 reimbursements.add(new Reimbursement(
                         resultSet.getInt("id"),

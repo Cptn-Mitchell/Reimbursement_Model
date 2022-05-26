@@ -1,9 +1,11 @@
 import Controller.AuthController;
-import Controller.ReimbursementController;
 import Controller.UserController;
 import io.javalin.Javalin;
 import io.javalin.core.JavalinConfig;
-
+import static io.javalin.apibuilder.ApiBuilder.get;
+import static io.javalin.apibuilder.ApiBuilder.path;
+import static io.javalin.apibuilder.ApiBuilder.put;
+import static io.javalin.apibuilder.ApiBuilder.post;
 
 public class ReimbursementDriver {
     public static void main(String[] args) {
@@ -17,7 +19,7 @@ public class ReimbursementDriver {
     }
     AuthController authController = new AuthController();
     UserController userController = new UserController();
-    ReimbursementController reimbursementController = new ReimbursementController();
+    UserController reimbursementController = new UserController();
     Javalin app = Javalin.create(JavalinConfig::enableCorsForAllOrigins).routes(()->{
         path("login",()->{
             post(authController::handleLogin);
@@ -42,5 +44,4 @@ public class ReimbursementDriver {
          });
         });
     });
-    }
 }

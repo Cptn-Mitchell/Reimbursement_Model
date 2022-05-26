@@ -5,6 +5,7 @@ import Service.UserService;
 import Service.ReimbursementService;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import io.javalin.Javalin;
+import io.javalin.http.Context;
 import io.javalin.http.HttpCode;
 
 import static Service.UserService.*;
@@ -19,7 +20,7 @@ public class UserController {
         Javalin app = Javalin.create();
         ReimbursementService reimbursementService = new ReimbursementService();
         UserService loginService = new UserService();
-        app.start(5000);
+        app.start(1433);
 
         app.get("Username/{Employee1}", context ->{
         String HandlerId = (context.pathParam("Employee1"));
@@ -75,18 +76,19 @@ public class UserController {
 
         });
         app.get("Status", context -> {
-            context.json(reimbursementService.getReimbursementByStatus(reimbursementByStatus));
+            String status = (context.pathParam("Status"));
+            context.json(reimbursementService.getReimbursementByStatus("Status"));
 
         });
 
         app.get("Author", context -> {
-            String author = (context.pathParam("author"));
-            context.json(reimbursementService.getReimbursementByAuthor("author"));
+            String author = (context.pathParam("Author"));
+            context.json(reimbursementService.getReimbursementByAuthor("Author"));
         });
         app.get("Author/{Name}", context -> {
             String Name = (context.pathParam("Name"));
-            context.json(reimbursementService.getReimbursementByAuthor(Name));
-        }):
+            context.json(reimbursementService.getReimbursementByAuthor("name"));
+        });
 
         app.get("/Reimbursement/ID", context ->{
             Object mapper = new ObjectMapper();

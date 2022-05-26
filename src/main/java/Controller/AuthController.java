@@ -1,5 +1,6 @@
 package Controller;
 
+import io.javalin.http.Context;
 import io.javalin.http.HttpCode;
 
 public class AuthController {
@@ -43,4 +44,8 @@ public void handleLogin(Context ctx) {
         }
     }
 }
+
+    public void handleGetUsers(Context ctx) {
+
+    }
 }

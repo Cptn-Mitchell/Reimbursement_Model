@@ -3,8 +3,9 @@ package Service;
 
 import Model.UserData;
 import org.eclipse.jetty.server.Authentication;
-
+import DAO.UserRepository;
 import java.util.ArrayList;
+import java.util.List;
 
 public class UserService {
 
@@ -52,10 +53,8 @@ public class UserService {
         return null;
     }
 
-    public ArrayList<UserData> getAllUsers() {
-        ArrayList<UserData> allUsers = new ArrayList<>();
-        return allUsers;
-
+    public List<UserData> getAllUsers() {
+        return users.getAllUsers();
     }
 
     public String getUsersByRole(String handlerId) {

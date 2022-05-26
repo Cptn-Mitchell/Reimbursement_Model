@@ -3,8 +3,9 @@ package Service;
 import Model.Reimbursement;
 import io.javalin.http.Context;
 import io.javalin.http.HttpCode;
-
+import DAO.ReimbursementDao;
 import java.util.ArrayList;
+import java.util.List;
 
 import static java.io.ObjectInputFilter.*;
 
@@ -47,23 +48,15 @@ public class ReimbursementService {
             return null;
         }
         public ArrayList<Reimbursement> getReimbursementByAuthor(int userId) {
-            return reimbursementDAO.getReimbursementsByUser(userId);
-
+            List<Reimbursement> userReimbursements = new ArrayList<>();
             Reimbursement[] reimbursements = new Reimbursement[0];
             for (Reimbursement reimbursement : reimbursements) {
-                if (Reimbursement.getAuthor() == userId) {
-                    String Reimbursement = new Reimbursement;
-                    reimbursementDAO.add(int,userId);
-                    return int userId;
-                } else if (Reimbursement.getResolver() == userId) {
-                    int Reimbursement = 0;
-                    reimbursementDAO.add(int);
-                    return null;
+                if (reimbursement.getAuthor() == userId || reimbursement.getResolver() == userId) {
+                    userReimbursement.add(reimbursement);
                 }
             }
-            return User;
+            return (ArrayList<Reimbursement>) userReimbursements;
         }
-
         public Integer getReimbursementByID ( int reimbursementId){
             return null;
         }

@@ -1,4 +1,4 @@
-package DAO;
+package Util;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -14,17 +14,11 @@ public class ConnectionFactory {
 
     }
     public static Connection getConnection(){
-        /*
-        storing the password as plain text within code is a bad idea...
-        because then people could just steal our credentials
-        instead: we can use a file on our computer that's read and keep it secure that way
-         */
         try {
             FileInputStream propertiesInput = new FileInputStream("src/main/resources/sql.properties");
-//            reading in properties as key value pairs
+
             Properties props= new Properties();
             props.load(propertiesInput);
-
             String url = (String) props.get("url");
             String username = (String) props.get("username");
             String password = (String) props.get("password");
